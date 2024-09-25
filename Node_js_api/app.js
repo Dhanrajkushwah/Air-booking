@@ -14,7 +14,7 @@ app.use(cors());
 app.use('/api', router);
 
 // MongoDB connection
-const mongoUri = process.env.MONGODB_URI = 'mongodb+srv://Contas:nuouP4MyDhH0q3E4@cluster0.gkkofhc.mongodb.net/trevelbook';
+const mongoUri = process.env.MONGODB_URI3 = 'mongodb+srv://Contas:nuouP4MyDhH0q3E4@cluster0.gkkofhc.mongodb.net/trevelbook';
 if (!mongoUri) {
     console.error('MONGODB_URI environment variable is not set.');
     process.exit(1);
