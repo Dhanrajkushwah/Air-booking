@@ -1,0 +1,162 @@
+<section class="travel-form-section">
+  <div class="container card p-4">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center mb-3">
+        <img src="https://www.jotform.com/uploads/ugurg/form_files/Travel%20(1).663b9702aa7335.47699928.png" class="img-fluid travel-image" alt="Travel" />
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-center">Travel Information Form</h2>
+        <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <div class="col-md-4">
+              <label for="title">Title</label>
+              <select formControlName="title" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.controls['title'].invalid}">
+                <option value="">Please Select</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+              </select>
+              <div *ngIf="submitted && travelForm.controls['title'].invalid" class="invalid-feedback">
+                Title is required.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="firstName">First Name</label>
+              <input formControlName="firstName" type="text" class="form-control" placeholder="First Name" [ngClass]="{'is-invalid': submitted && travelForm.controls['firstName'].invalid}" />
+              <div *ngIf="submitted && travelForm.controls['firstName'].invalid" class="invalid-feedback">
+                First name is required and must be at least 2 characters.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="lastName">Last Name</label>
+              <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name" [ngClass]="{'is-invalid': submitted && travelForm.controls['lastName'].invalid}" />
+              <div *ngIf="submitted && travelForm.controls['lastName'].invalid" class="invalid-feedback">
+                Last name is required and must be at least 2 characters.
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label for="birthDate">Birth Date</label>
+              <input formControlName="birthDate" type="date" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.controls['birthDate'].invalid}" />
+              <div *ngIf="submitted && travelForm.controls['birthDate'].invalid" class="invalid-feedback">
+                Birth date is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="organizationName">Organization Name</label>
+              <input formControlName="organizationName" type="text" class="form-control" placeholder="Organization Name" [ngClass]="{'is-invalid': submitted && travelForm.controls['organizationName'].invalid}" />
+              <div *ngIf="submitted && travelForm.controls['organizationName'].invalid" class="invalid-feedback">
+                Organization name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label for="email">Email</label>
+              <input formControlName="email" type="email" class="form-control" placeholder="example@example.com" [ngClass]="{'is-invalid': submitted && travelForm.controls['email'].invalid}" />
+              <div *ngIf="submitted && travelForm.controls['email'].invalid" class="invalid-feedback">
+                Valid email is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="phoneNumber">Phone Number</label>
+              <input formControlName="phoneNumber" type="text" class="form-control" placeholder="Phone Number" [ngClass]="{'is-invalid': submitted && travelForm.controls['phoneNumber'].invalid}" />
+              <div *ngIf="submitted && travelForm.controls['phoneNumber'].invalid" class="invalid-feedback">
+                Phone number must be 10 digits.
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label for="departureCountry">Departure Country</label>
+              <select formControlName="departureCountry" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.controls['departureCountry'].invalid}">
+                <option value="">Please Select</option>
+                <option value="INDIA">INDIA</option>
+                <option value="USA">USA</option>
+                <option value="Canada">Canada</option>
+              </select>
+              <div *ngIf="submitted && travelForm.controls['departureCountry'].invalid" class="invalid-feedback">
+                Departure country is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="destinationCountry">Destination Country</label>
+              <select formControlName="destinationCountry" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.controls['destinationCountry'].invalid}">
+                <option value="">Please Select</option>
+                <option value="Indore">Indore</option>
+                <option value="Pune">Pune</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+              </select>
+              <div *ngIf="submitted && travelForm.controls['destinationCountry'].invalid" class="invalid-feedback">
+                Destination country is required.
+              </div>
+            </div>
+          </div>
+          <div formGroupName="departureDateTime" class="form-group row">
+            <div class="col-md-6">
+              <label for="departureDateTime">Departure Date</label>
+              <input formControlName="date" type="date" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.get('date')?.invalid}" />
+              <div *ngIf="submitted && travelForm.get('date')?.invalid" class="invalid-feedback">
+                Departure date is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="departureTime">Departure Time</label>
+              <input formControlName="time" type="time" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.get('time')?.invalid}" />
+              <div *ngIf="submitted && travelForm.get('time')?.invalid" class="invalid-feedback">
+                Departure time is required.
+              </div>
+            </div>
+          </div>
+          <div formGroupName="returnDateTime" class="form-group row">
+            <div class="col-md-6">
+              <label for="returnDateTime">Return Date</label>
+              <input formControlName="date" type="date" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.get('date')?.invalid}" />
+              <div *ngIf="submitted && travelForm.get('date')?.invalid" class="invalid-feedback">
+                Return date is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="returnTime">Return Time</label>
+              <input formControlName="time" type="time" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.get('time')?.invalid}" />
+              <div *ngIf="submitted && travelForm.get('time')?.invalid" class="invalid-feedback">
+                Return time is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label for="classOfService">Class of Service</label>
+              <select formControlName="classOfService" class="form-control" [ngClass]="{'is-invalid': submitted && travelForm.controls['classOfService'].invalid}">
+                <option value="">Please Select</option>
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First Class">First Class</option>
+              </select>
+              <div *ngIf="submitted && travelForm.controls['classOfService'].invalid" class="invalid-feedback">
+                Class of service is required.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="preferredHotel">Preferred Hotel</label>
+              <input formControlName="preferredHotel" type="text" class="form-control" placeholder="Preferred Hotel" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label for="preferredAirline">Preferred Airline</label>
+              <input formControlName="preferredAirline" type="text" class="form-control" placeholder="Preferred Airline" />
+            </div>
+            <div class="col-md-6">
+              <label for="additionalInfo">Additional Info</label>
+              <textarea formControlName="additionalInfo" class="form-control" placeholder="Any additional information"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

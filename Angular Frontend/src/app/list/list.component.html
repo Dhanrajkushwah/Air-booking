@@ -1,0 +1,115 @@
+<div class="table-container">
+  <mat-card class="card">
+    <mat-form-field class="filter-field" appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Name, Email, Country">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Phone Number Column -->
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+      </ng-container>
+
+      <!-- Departure Country Column -->
+      <ng-container matColumnDef="departureCountry">
+        <th mat-header-cell *matHeaderCellDef> Departure Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.departureCountry}} </td>
+      </ng-container>
+
+      <!-- Destination Country Column -->
+      <ng-container matColumnDef="destinationCountry">
+        <th mat-header-cell *matHeaderCellDef> Destination Country </th>
+        <td mat-cell *matCellDef="let element"> {{element.destinationCountry}} </td>
+      </ng-container>
+
+      <!-- Departure Date Column -->
+      <ng-container matColumnDef="departureDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Departure Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.departureDateTime.date | date:'yyyy-MM-dd'}} ({{element.departureDateTime.time}}) </td>
+      </ng-container>
+
+      <!-- Return Date Column -->
+      <ng-container matColumnDef="returnDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Return Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.returnDateTime.date | date:'yyyy-MM-dd'}} ({{element.returnDateTime.time}}) </td>
+      </ng-container>
+
+      <!-- Class of Service Column -->
+      <ng-container matColumnDef="classOfService">
+        <th mat-header-cell *matHeaderCellDef> Class of Service </th>
+        <td mat-cell *matCellDef="let element"> {{element.classOfService}} </td>
+      </ng-container>
+
+      <!-- Organization Column -->
+      <ng-container matColumnDef="organizationName">
+        <th mat-header-cell *matHeaderCellDef> Organization </th>
+        <td mat-cell *matCellDef="let element"> {{element.organizationName}} </td>
+      </ng-container>
+
+      <!-- Preferred Airline Column -->
+      <ng-container matColumnDef="preferredAirline">
+        <th mat-header-cell *matHeaderCellDef> Preferred Airline </th>
+        <td mat-cell *matCellDef="let element"> {{element.preferredAirline}} </td>
+      </ng-container>
+
+      <!-- Preferred Hotel Column -->
+      <ng-container matColumnDef="preferredHotel">
+        <th mat-header-cell *matHeaderCellDef> Preferred Hotel </th>
+        <td mat-cell *matCellDef="let element"> {{element.preferredHotel}} </td>
+      </ng-container>
+
+      <!-- Birth Date Column -->
+      <ng-container matColumnDef="birthDate">
+        <th mat-header-cell *matHeaderCellDef> Birth Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.birthDate | date:'yyyy-MM-dd'}} </td>
+      </ng-container>
+
+      <!-- Additional Info Column -->
+      <ng-container matColumnDef="additionalInfo">
+        <th mat-header-cell *matHeaderCellDef> Additional Info </th>
+        <td mat-cell *matCellDef="let element"> {{element.additionalInfo}} </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <!-- Pagination -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card>
+</div>
